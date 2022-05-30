@@ -15,10 +15,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Component
 public class StepnPostHandler implements UpdateHandler {
 
-    @Value("${TELEGRAM_BOT_TOKEN}")
-    String botToken;
-    @Value("${TELEGRAM_BOT_NAME}")
-    String botName;
     @Value("${API_TOKEN}")
     String apiToken;
 

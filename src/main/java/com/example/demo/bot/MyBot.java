@@ -21,19 +21,15 @@ public class MyBot extends TelegramLongPollingBot {
 
     private String botName;
     private String botToken;
-    private String apiToken;
-
 
     @Autowired
     private List<UpdateHandler> handlers;
 
     public MyBot(
             @Value("${TELEGRAM_BOT_TOKEN}") String botToken,
-            @Value("${TELEGRAM_BOT_NAME}") String botName,
-            @Value("${API_TOKEN}") String token) {
+            @Value("${TELEGRAM_BOT_NAME}") String botName) {
         this.botToken = botToken;
         this.botName = botName;
-        this.apiToken = token;
     }
 
     @Override
