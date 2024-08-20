@@ -1,12 +1,13 @@
 package com.example.demo.controllers;
 
-import com.example.demo.bot.CommerceValerikaBot;
+import com.example.demo.services.BotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
@@ -14,7 +15,7 @@ import org.telegram.telegrambots.meta.generics.TelegramClient;
 public class ApiController {
 
     @Autowired
-    CommerceValerikaBot bot;
+    BotService botService;
 
     @Autowired
     TelegramClient telegramClient = null;
@@ -38,6 +39,12 @@ public class ApiController {
             e.printStackTrace();
         }
         return "Greetings from Spring Boot!";
+    }
+
+    @RequestMapping(path = "/bot-updates", method = RequestMethod.POST)
+    public String receiveUpdates(@RequestBody Update update) {
+        botService.consume(update);
+        return "Ok!";
     }
 
 }

@@ -6,9 +6,12 @@ import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
 @org.springframework.context.annotation.Configuration
-public class Configuration {
+public class BotConfig {
     @Value("${TELEGRAM_BOT_TOKEN}")
     String botToken;
+
+    @Value("${TELEGRAM_BOT_NAME}")
+    private String botName;
 
     @Bean
     public TelegramClient telegramClient() {
