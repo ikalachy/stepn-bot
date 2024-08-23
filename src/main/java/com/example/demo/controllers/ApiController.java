@@ -38,7 +38,7 @@ public class ApiController {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-        return "Greetings from Spring Boot!";
+        return "Ok!";
     }
 
     @RequestMapping(path = "/bot-updates", method = RequestMethod.POST)
