@@ -26,7 +26,7 @@ public class ApiController {
         return "Greetings from Spring Boot!";
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = {"*"})
     @RequestMapping(path = "/web-data", method = RequestMethod.POST)
     public String webData(@RequestBody OrderMessage message) {
 
